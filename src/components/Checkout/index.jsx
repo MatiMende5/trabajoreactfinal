@@ -3,8 +3,10 @@ import generateOrder from '../../Utils/generarOrden';
 import guardarOrden from '../../Utils/guardarOrden';
 import {useContext} from 'react';
 import {Shop} from '../../context/ShopContext';
-
 import {useNavigate} from 'react-router-dom';
+import getProductos from '../../Utils/getCollections';
+
+
 
 const Checkout = () => {
 	const [nombre, setNombre] = useState();
@@ -19,7 +21,7 @@ const Checkout = () => {
 	const handleOrder = (e) => {
 		e.preventDefault();
 
-		if ([nombre, telefono, email, direccion].includes('')) {
+		if (!nombre, !telefono, !email, !direccion) {
 			alert('Todos los campos son obligatorios');
 			return;
 		}
@@ -110,9 +112,11 @@ const Checkout = () => {
 
 				<div className="mb-5">
 					<input
+						onClick={getProductos}
 						type="submit"
 						className="bg-rosa text-blanco text-center w-1/5 tablet:w-11/12 cel:w-11/12 py-2 px-2 rounded-3xl text-sm uppercase hover:bg-rosaFuerte"
-						value={'Guardar'}
+						value={"Guardar"}
+						
 					></input>
 				</div>
 			</form>
